@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#截取ip，以:或一个多个空格作为分隔符，匹配到inet addr关键
 ip=`/sbin/ifconfig | awk -F'[: ]+' '/Link encap/{a=$1;next;}/inet addr/{if($4!~/^127\./ && $4!~/^192\./ && $4 !~/^10\./ &&$4!~/^172\./)print $4}'|head -1`
 ls /sbin/ntpdate
 if [ $? -ne 0 ];then
