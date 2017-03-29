@@ -8,7 +8,7 @@ if [ $? -ne 0 ];then
 fi
 #修改时区
 echo 'ZONE="Asia/Shanghai"' >/etc/sysconfig/clock && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && /usr/sbin/ntpdate time.nist.gov#
-#time.nist.gov
+#time.nist.gov用来校正格林
 /usr/sbin/ntpdate time.nist.gov
 if [ $? -ne 0 ];then
     /usr/sbin/ntpdate time-a.nist.gov
